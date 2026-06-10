@@ -1,8 +1,7 @@
 // === SERVICE MODAL DATA ===
-const serviceData = {
+var serviceData = {
     sonlandirma: {
         title: 'Fiber Kablo Sonlandırma',
-        img: 'https://istanbultelekomiletisim.com/wp-content/uploads/2025/04/WhatsApp-Gorsel-2025-04-18-saat-19.30.40_8bb2f0c4.jpg',
         subtitle: 'Fiber optik kabloların profesyonel ekipmanlarla sonlandırılması ve uçlandırma işlemleri.',
         sections: [
             {
@@ -26,10 +25,8 @@ const serviceData = {
         highlights: ['Daha düşük kayıplı ve yüksek performanslı ağlar', 'Kesintisiz veri iletimi için güvenilir bağlantılar', 'Uzun ömürlü ve dayanıklı altyapı çözümleri'],
         cities: 'İstanbul, Tekirdağ ve Edirne'
     },
-
     doseme: {
         title: 'Fiber Kablo Döşeme',
-        img: 'https://istanbultelekomiletisim.com/wp-content/uploads/2025/04/ChatGPT-Image-18-Nis-2025-22_23_14.png',
         subtitle: 'Bina içi ve dışı fiber optik kablo çekimi, altyapı hazırlama ve montaj hizmetleri.',
         sections: [
             {
@@ -62,10 +59,8 @@ const serviceData = {
         highlights: ['Yüksek hızlı internet altyapısı için temel çözüm', 'Profesyonel ekipman ve deneyimli ekip', 'İstanbul, Tekirdağ ve Edirne genelinde hizmet'],
         cities: 'İstanbul, Tekirdağ ve Edirne'
     },
-
     tamir: {
         title: 'Fiber Kablo Tamiri',
-        img: 'https://istanbultelekomiletisim.com/wp-content/uploads/2025/04/WhatsApp-Gorsel-2025-04-18-saat-19.30.40_c6ee5b1f.jpg',
         subtitle: 'Kırılan, kopan veya hasar gören fiber hatların kaynak işlemiyle profesyonel onarımı.',
         sections: [
             {
@@ -88,10 +83,8 @@ const serviceData = {
         highlights: ['7/24 acil müdahale desteği', 'Gelişmiş OTDR ve ölçüm cihazları', 'Garantili ve güvenilir onarım hizmeti'],
         cities: 'İstanbul, Tekirdağ ve Edirne'
     },
-
     kablolama: {
         title: 'Network Kablolama',
-        img: 'https://istanbultelekomiletisim.com/wp-content/uploads/2025/04/ChatGPT-Image-18-Nis-2025-22_36_01.png',
         subtitle: 'Kurumsal ve bireysel network altyapısı için yapısal kablolama ve patch panel çözümleri.',
         sections: [
             {
@@ -115,10 +108,8 @@ const serviceData = {
         highlights: ['En az Cat6 veya fiber altyapı önerisi', 'Elektromanyetik girişimden koruma', 'Düzenli bakım ve destek hizmeti'],
         cities: 'İstanbul, Tekirdağ ve Edirne'
     },
-
     network: {
         title: 'Network Kurulumu',
-        img: 'https://istanbultelekomiletisim.com/wp-content/uploads/2025/04/ChatGPT-Image-18-Nis-2025-22_47_00.png',
         subtitle: 'Switch, router ve ağ cihazlarının kurulumu, konfigürasyonu ve test edilmesi.',
         sections: [
             {
@@ -144,10 +135,8 @@ const serviceData = {
         highlights: ['Profesyonel ağ konfigürasyonu', 'Güvenlik duvarı ve VPN desteği', '7/24 teknik destek'],
         cities: 'İstanbul, Tekirdağ ve Edirne'
     },
-
     internet: {
         title: 'İnternet Bağlama',
-        img: 'https://istanbultelekomiletisim.com/wp-content/uploads/2025/04/WhatsApp-Gorsel-2025-04-18-saat-19.30.40_70785ca2.jpg',
         subtitle: 'Fiber, ADSL, VDSL internet bağlantı kurulumu, aktivasyonu ve hız testi hizmetleri.',
         sections: [
             {
@@ -173,215 +162,295 @@ const serviceData = {
 };
 
 // === MODAL ===
-const overlay = document.getElementById('modalOverlay');
-const modal = document.getElementById('modal');
-const modalBody = document.getElementById('modalBody');
-const modalClose = document.getElementById('modalClose');
+var overlay = document.getElementById('modalOverlay');
+var modalBody = document.getElementById('modalBody');
+var modalClose = document.getElementById('modalClose');
 
-function openModal(serviceKey) {
-    const data = serviceData[serviceKey];
+window.openModal = function(serviceKey) {
+    var data = serviceData[serviceKey];
     if (!data) return;
 
-    let html = '';
+    var html = '';
 
-    if (data.img) {
-        html += `<img class="modal-img" src="${data.img}" alt="${data.title}" loading="lazy">`;
-    }
-
-    html += `<h2>${data.title}</h2>`;
+    html += '<h2>' + data.title + '</h2>';
     if (data.subtitle) {
-        html += `<p class="modal-subtitle">${data.subtitle}</p>`;
+        html += '<p class="modal-subtitle">' + data.subtitle + '</p>';
     }
 
-    data.sections.forEach((section, si) => {
-        html += `<h3><i class="fas fa-arrow-right"></i> ${section.heading}</h3>`;
+    for (var si = 0; si < data.sections.length; si++) {
+        var section = data.sections[si];
+        html += '<h3><i class="fas fa-arrow-right"></i> ' + section.heading + '</h3>';
         if (section.content) {
-            html += `<p>${section.content}</p>`;
+            html += '<p>' + section.content + '</p>';
         }
         if (section.steps) {
-            html += `<div class="modal-steps">`;
-            section.steps.forEach(step => {
-                html += `<div class="modal-step">
-                    <div class="modal-step-num">${si + 1}.${section.steps.indexOf(step) + 1}</div>
-                    <div><strong>${step.title}</strong><p>${step.text}</p></div>
-                </div>`;
-            });
-            html += `</div>`;
+            html += '<div class="modal-steps">';
+            for (var si2 = 0; si2 < section.steps.length; si2++) {
+                var step = section.steps[si2];
+                html += '<div class="modal-step"><div class="modal-step-num">' + (si + 1) + '.' + (si2 + 1) + '</div><div><strong>' + step.title + '</strong><p>' + step.text + '</p></div></div>';
+            }
+            html += '</div>';
         }
-    });
+    }
 
     if (data.highlights && data.highlights.length) {
-        html += `<div class="modal-tip"><i class="fas fa-star"></i><div>`;
-        data.highlights.forEach(h => {
-            html += `<span class="modal-badge">${h}</span> `;
-        });
-        html += `</div></div>`;
+        html += '<div class="modal-tip"><i class="fas fa-star"></i><div>';
+        for (var h = 0; h < data.highlights.length; h++) {
+            html += '<span class="modal-badge">' + data.highlights[h] + '</span> ';
+        }
+        html += '</div></div>';
     }
 
     if (data.cities) {
-        html += `<p style="margin-top: 16px;"><i class="fas fa-map-marker-alt" style="color: var(--primary-light);"></i> Hizmet Bölgeleri: <strong>${data.cities}</strong></p>`;
+        html += '<p style="margin-top:16px"><i class="fas fa-map-marker-alt" style="color:var(--primary-light)"></i> Hizmet Bölgeleri: <strong>' + data.cities + '</strong></p>';
     }
 
-    html += `<div class="modal-cta">
-        <a href="#contact" class="btn btn-primary" onclick="closeModal()"><i class="fas fa-envelope"></i> Hemen İletişime Geç</a>
-        <a href="tel:05332380457" class="btn btn-secondary"><i class="fas fa-phone-alt"></i> 0533 238 04 57</a>
-    </div>`;
+    html += '<div class="modal-cta"><a href="#contact" class="btn btn-primary" onclick="window.closeModal()"><i class="fas fa-envelope"></i> Hemen İletişime Geç</a><a href="tel:05332380457" class="btn btn-secondary"><i class="fas fa-phone-alt"></i> 0533 238 04 57</a></div>';
 
     modalBody.innerHTML = html;
     overlay.classList.add('active');
     document.body.classList.add('no-scroll');
-}
+};
 
-function closeModal() {
+window.closeModal = function() {
     overlay.classList.remove('active');
     document.body.classList.remove('no-scroll');
+};
+
+if (overlay) {
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) window.closeModal();
+    });
 }
 
-overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
+if (modalClose) {
+    modalClose.addEventListener('click', window.closeModal);
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') window.closeModal();
 });
 
-modalClose.addEventListener('click', closeModal);
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+// === SERVICE CARD CLICK ===
+document.addEventListener('DOMContentLoaded', function() {
+    var cards = document.querySelectorAll('.service-card');
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener('click', function() {
+            var service = this.getAttribute('data-service');
+            if (service) window.openModal(service);
+        });
+    }
 });
 
 // === MOBILE MENU ===
-const menuToggle = document.getElementById('menuToggle');
-const nav = document.getElementById('nav');
-const navLinks = nav.querySelectorAll('a');
+document.addEventListener('DOMContentLoaded', function() {
+    var menuToggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('nav');
+    var navLinks = nav.querySelectorAll('a');
 
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    nav.classList.toggle('active');
-});
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    }
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        nav.classList.remove('active');
-    });
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    }
 });
 
 // === HEADER SCROLL ===
-const header = document.getElementById('header');
+var header = document.getElementById('header');
 
-window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
+window.addEventListener('scroll', function() {
+    var scrollY = window.pageYOffset;
     header.style.background = scrollY > 100 ? 'rgba(10,14,26,0.95)' : 'rgba(10,14,26,0.85)';
 
-    // Active nav link
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        const bottom = top + section.offsetHeight;
-        const link = nav.querySelector(`a[href="#${section.id}"]`);
-        if (link) {
-            if (scrollY >= top && scrollY <= bottom) {
-                navLinks.forEach(l => l.classList.remove('active'));
+    var sections = document.querySelectorAll('section[id]');
+    var nav = document.getElementById('nav');
+    if (nav) {
+        var navLinks = nav.querySelectorAll('a');
+        for (var i = 0; i < sections.length; i++) {
+            var section = sections[i];
+            var top = section.offsetTop - 120;
+            var bottom = top + section.offsetHeight;
+            var link = nav.querySelector('a[href="#' + section.id + '"]');
+            if (link && scrollY >= top && scrollY <= bottom) {
+                for (var j = 0; j < navLinks.length; j++) {
+                    navLinks[j].classList.remove('active');
+                }
                 link.classList.add('active');
             }
         }
-    });
+    }
 });
 
 // === COUNTER ANIMATION ===
-const counters = document.querySelectorAll('.stat-number');
+document.addEventListener('DOMContentLoaded', function() {
+    var counters = document.querySelectorAll('.stat-number');
 
-const animateCounter = (el) => {
-    const target = parseInt(el.getAttribute('data-target'));
-    const duration = 1500;
-    const start = performance.now();
+    var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var el = entry.target;
+                var target = parseInt(el.getAttribute('data-target'));
+                var duration = 1500;
+                var start = performance.now();
 
-    const update = (now) => {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        el.textContent = Math.floor(progress * target) + '+';
-        if (progress < 1) requestAnimationFrame(update);
-    };
+                function update(now) {
+                    var elapsed = now - start;
+                    var progress = Math.min(elapsed / duration, 1);
+                    el.textContent = Math.floor(progress * target) + '+';
+                    if (progress < 1) requestAnimationFrame(update);
+                }
 
-    requestAnimationFrame(update);
-};
+                requestAnimationFrame(update);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
 
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-counters.forEach(c => counterObserver.observe(c));
+    for (var i = 0; i < counters.length; i++) {
+        counterObserver.observe(counters[i]);
+    }
+});
 
 // === FAQ ACCORDION ===
-document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-question').addEventListener('click', () => {
-        const wasActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!wasActive) item.classList.add('active');
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    var faqItems = document.querySelectorAll('.faq-item');
+    for (var i = 0; i < faqItems.length; i++) {
+        (function(item) {
+            var question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', function() {
+                    var wasActive = item.classList.contains('active');
+                    var allItems = document.querySelectorAll('.faq-item');
+                    for (var j = 0; j < allItems.length; j++) {
+                        allItems[j].classList.remove('active');
+                    }
+                    if (!wasActive) item.classList.add('active');
+                });
+            }
+        })(faqItems[i]);
+    }
 });
 
 // === CONTACT FORM ===
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
+document.addEventListener('DOMContentLoaded', function() {
+    var contactForm = document.getElementById('contactForm');
+    var formSuccess = document.getElementById('formSuccess');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = contactForm.querySelector('.btn-submit');
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
-        btn.disabled = true;
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        setTimeout(() => {
-            contactForm.style.display = 'none';
-            formSuccess.style.display = 'block';
-        }, 1200);
-    });
-}
+            var nameInput = document.getElementById('name');
+            var subjectSelect = document.getElementById('subjectSelect');
+            var subjectInput = document.getElementById('formSubject');
+            var formNameInput = document.getElementById('formName');
+            if (subjectInput) {
+                subjectInput.value = 'İletişim Formu - ' + (subjectSelect ? subjectSelect.value : '');
+            }
+            if (formNameInput && nameInput) {
+                formNameInput.value = nameInput.value;
+            }
+
+            var btn = contactForm.querySelector('.btn-submit');
+            var formData = new FormData(contactForm);
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+            btn.disabled = true;
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                return response.json();
+            }).then(function(data) {
+                if (data.success) {
+                    contactForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                } else {
+                    alert('Hata: ' + (data.message || 'Bir sorun oluştu.'));
+                }
+            }).catch(function() {
+                alert('Bağlantı hatası. Lütfen tekrar deneyin.');
+            }).finally(function() {
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Mesajı Gönder';
+                btn.disabled = false;
+            });
+        });
+    }
+});
 
 // === NEWSLETTER ===
-const newsletterForm = document.getElementById('newsletterForm');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = newsletterForm.querySelector('button');
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-        btn.disabled = true;
+document.addEventListener('DOMContentLoaded', function() {
+    var newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = newsletterForm.querySelector('button');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            btn.disabled = true;
 
-        setTimeout(() => {
-            newsletterForm.querySelector('input').value = '';
-            btn.innerHTML = 'Abone Olundu <i class="fas fa-check"></i>';
-            setTimeout(() => { btn.innerHTML = 'Abone Ol'; btn.disabled = false; }, 2000);
-        }, 1000);
-    });
-}
+            setTimeout(function() {
+                newsletterForm.querySelector('input').value = '';
+                btn.innerHTML = 'Abone Olundu <i class="fas fa-check"></i>';
+                setTimeout(function() { btn.innerHTML = 'Abone Ol'; btn.disabled = false; }, 2000);
+            }, 1000);
+        });
+    }
+});
 
 // === SCROLL REVEAL ===
-const revealEls = document.querySelectorAll(
-    '.service-card, .advantage-item, .detail-card, .area-card, .timeline-item, .contact-card'
-);
+document.addEventListener('DOMContentLoaded', function() {
+    var revealEls = document.querySelectorAll('.service-card, .advantage-item, .detail-card, .area-card, .timeline-item, .contact-card');
 
-const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            revealObs.unobserve(entry.target);
+    var revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                revealObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    for (var i = 0; i < revealEls.length; i++) {
+        var el = revealEls[i];
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        revealObs.observe(el);
+    }
+
+    // Staggered delays for service cards
+    var cards = document.querySelectorAll('.service-card');
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].style.transitionDelay = (i * 0.08) + 's';
+    }
+});
+
+// === TYPEWRITER EFFECT ===
+(function() {
+    var el = document.getElementById('typewriter');
+    if (!el) return;
+    var text = 'Ar\u0131za, Bak\u0131m &amp; Onar\u0131m';
+    var i = 0;
+    var speed = 60;
+
+    function type() {
+        if (i <= text.length) {
+            el.innerHTML = text.substring(0, i);
+            i++;
+            setTimeout(type, speed);
         }
-    });
-}, { threshold: 0.1 });
+    }
 
-revealEls.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    revealObs.observe(el);
-});
+    setTimeout(type, 600);
+})();
 
-// Staggered delays
-document.querySelectorAll('.service-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 0.08}s`;
-});

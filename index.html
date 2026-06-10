@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://istanbultelekomiletisim.com/wp-content/uploads/2024/11/1012933096_hostinger_ai_497be99e-300x156.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -45,7 +46,7 @@
         <div class="container">
             <div class="hero-content">
                 <span class="hero-badge">İstanbul Telekom</span>
-                <h1>Fiber İnternet <span class="gradient-text">Arıza, Bakım & Onarım</span></h1>
+                <h1>Fiber İnternet <span class="gradient-text" id="typewriter"></span></h1>
                 <p>Fiber optik altyapınızın kesintisiz ve yüksek performansla çalışmasını sağlamak için uzman teknik ekibimizle 7/24 hizmetinizdeyiz.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">
@@ -90,37 +91,37 @@
                 <p>Fiber optik altyapınız için kapsamlı hizmet yelpazemizle yanınızdayız. Detaylı bilgi için kartlara tıklayın.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card" onclick="openModal('sonlandirma')">
+                <div class="service-card" data-service="sonlandirma">
                     <div class="service-icon"><i class="fas fa-plug"></i></div>
                     <h3>Fiber Sonlandırma</h3>
                     <p>Fiber optik kabloların profesyonel ekipmanlarla sonlandırılması ve uçlandırma işlemleri.</p>
                     <span class="service-link">Detaylı İncele <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card" onclick="openModal('doseme')">
+                <div class="service-card" data-service="doseme">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3>Fiber Kablo Döşeme</h3>
                     <p>Bina içi ve dışı fiber optik kablo çekimi, altyapı hazırlama ve montaj hizmetleri.</p>
                     <span class="service-link">Detaylı İncele <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card" onclick="openModal('tamir')">
+                <div class="service-card" data-service="tamir">
                     <div class="service-icon"><i class="fas fa-wrench"></i></div>
                     <h3>Fiber Kablo Tamiri</h3>
                     <p>Kırılan, kopan veya hasar gören fiber hatların kaynak işlemiyle profesyonel onarımı.</p>
                     <span class="service-link">Detaylı İncele <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card" onclick="openModal('kablolama')">
+                <div class="service-card" data-service="kablolama">
                     <div class="service-icon"><i class="fas fa-network-wired"></i></div>
                     <h3>Network Kablolama</h3>
                     <p>Kurumsal ve bireysel network altyapısı için yapısal kablolama ve patch panel çözümleri.</p>
                     <span class="service-link">Detaylı İncele <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card" onclick="openModal('network')">
+                <div class="service-card" data-service="network">
                     <div class="service-icon"><i class="fas fa-server"></i></div>
                     <h3>Network Kurulumu</h3>
                     <p>Switch, router ve ağ cihazlarının kurulumu, konfigürasyonu ve test edilmesi.</p>
                     <span class="service-link">Detaylı İncele <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="service-card" onclick="openModal('internet')">
+                <div class="service-card" data-service="internet">
                     <div class="service-icon"><i class="fas fa-globe"></i></div>
                     <h3>İnternet Bağlama</h3>
                     <p>Fiber, ADSL, VDSL internet bağlantı kurulumu, aktivasyonu ve hız testi hizmetleri.</p>
@@ -356,15 +357,14 @@
                         <h3>Çalışma Saatleri</h3>
                         <p>Hafta içi: 08:00 - 18:00</p>
                     </div>
-                    <div class="contact-social">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
-                    </div>
+
                 </div>
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="4fa66758-fba6-4d5a-887d-ac6fd002c148">
+                        <input type="hidden" name="subject" id="formSubject">
+                        <input type="hidden" name="from_name" id="formName">
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Adınız Soyadınız *</label>
@@ -385,8 +385,8 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="subject">Talep Konusu *</label>
-                                <select id="subject" name="subject" required>
+                                <label for="subjectSelect">Talep Konusu *</label>
+                                <select id="subjectSelect" name="subjectSelect" required>
                                     <option value="">Seçiniz</option>
                                     <option value="Fiber Kablo Kopması">Fiber Kablo Kopması / Fiziksel Hasar</option>
                                     <option value="Zayıf Sinyal">Zayıf Sinyal (Power Loss)</option>
@@ -445,12 +445,7 @@
                 <div class="footer-col footer-brand">
                     <img src="https://istanbultelekomiletisim.com/wp-content/uploads/2024/11/1012933096_hostinger_ai_497be99e.png" alt="İstanbul Telekom" class="footer-logo">
                     <p>Fiber internet ile hızın sınırlarını zorlayın, kesintisiz bir dünya sizi bekliyor!</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
-                    </div>
+
                 </div>
                 <div class="footer-col">
                     <h4>Menü</h4>
@@ -473,7 +468,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 İstanbul Telekom. Tüm hakları saklıdır.</p>
+                <p>&copy; 2025 İstanbul Telekom. Tüm hakları saklıdır. | <a href="https://softdata.com.tr/" target="_blank" rel="noopener" style="color: var(--primary-light); text-decoration: none;">softdata.com.tr</a></p>
             </div>
         </div>
     </footer>
