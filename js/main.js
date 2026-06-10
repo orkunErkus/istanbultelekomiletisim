@@ -439,18 +439,30 @@ document.addEventListener('DOMContentLoaded', function() {
 (function() {
     var el = document.getElementById('typewriter');
     if (!el) return;
+
+    // Apply gradient-text styling to this span too
+    el.style.background = 'var(--gradient-1)';
+    el.style.webkitBackgroundClip = 'text';
+    el.style.webkitTextFillColor = 'transparent';
+    el.style.backgroundClip = 'text';
+    el.style.color = 'transparent';
+
     var text = 'Ar\u0131za, Bak\u0131m &amp; Onar\u0131m';
     var i = 0;
-    var speed = 60;
+    var speed = 130;
+    var len = text.length;
 
     function type() {
-        if (i <= text.length) {
-            el.innerHTML = text.substring(0, i);
+        if (i < len) {
+            el.innerHTML = text.substring(0, i + 1);
             i++;
             setTimeout(type, speed);
+        } else {
+            el.innerHTML = text;
         }
     }
 
-    setTimeout(type, 600);
+    // Start after a brief delay
+    setTimeout(type, 500);
 })();
 

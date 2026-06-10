@@ -107,7 +107,7 @@ body.no-scroll { overflow: hidden; }
 /* HERO */
 .hero {
     position: relative; min-height: 100vh; display: flex; align-items: center;
-    padding: 220px 0 80px; overflow: hidden;
+    padding: 170px 0 80px; overflow: hidden;
 }
 
 .hero-bg {
@@ -127,16 +127,12 @@ body.no-scroll { overflow: hidden; }
     font-weight: 500; color: var(--primary-light); margin-bottom: 20px;
 }
 
-.hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+.hero h1 { font-size: 40px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+.hero h1 .h1-static { color: var(--text); }
 
 .gradient-text {
     background: var(--gradient-1); -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; background-clip: text;
-}
-
-#typewriter {
-    display: inline-block;
-    min-width: 20px;
 }
 
 #typewriter::after {
@@ -551,6 +547,7 @@ body.no-scroll { overflow: hidden; }
     .nav a { font-size: 16px; }
     .menu-toggle { display: flex; }
 
+    .hero h1 { font-size: 28px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .contact-wrapper { grid-template-columns: 1fr; }
@@ -567,7 +564,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 @media (max-width: 576px) {
-    .hero h1 { font-size: 30px; }
+    .hero h1 { font-size: 24px; }
     .hero p { font-size: 15px; }
     .hero-buttons { flex-direction: column; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
