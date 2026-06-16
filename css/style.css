@@ -547,12 +547,18 @@ body.no-scroll { overflow: hidden; }
     .nav a { font-size: 16px; }
     .menu-toggle { display: flex; }
 
+    .header .container { height: 60px; padding: 0 12px; }
+    .logo img { height: 80px; }
+    .btn-phone { display: none; }
+    .menu-toggle { padding: 0; }
+    .header-actions { gap: 4px; margin-left: -20px; }
     .hero h1 { font-size: 28px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .contact-wrapper { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .services-grid { grid-template-columns: 1fr; }
+    .advantages-grid { grid-template-columns: 1fr; }
 
     .detail-card { grid-template-columns: 1fr; gap: 12px; }
     .detail-number { font-size: 32px; }
@@ -574,10 +580,8 @@ body.no-scroll { overflow: hidden; }
     .areas-grid { grid-template-columns: 1fr; }
     .about-experience { position: relative; bottom: auto; right: auto; margin-top: 16px; }
 
-    .whatsapp-float, .call-float { width: 48px; height: 48px; font-size: 22px; }
-    .call-float { bottom: 82px; }
-    .whatsapp-float { bottom: 20px; right: 20px; }
-    .call-float { bottom: 80px; right: 20px; }
+    .whatsapp-float { bottom: 20px; right: 16px; width: 50px; height: 50px; font-size: 24px; }
+    .call-float { bottom: 80px; right: 16px; width: 50px; height: 50px; font-size: 20px; }
 
     .modal-body h2 { font-size: 22px; }
 }
