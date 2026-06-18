@@ -1,0 +1,24 @@
+{
+    "name": "İstanbul Telekom",
+    "short_name": "İstanbul Telekom",
+    "description": "Fiber optik kablo döşeme, onarım, bakım ve network kurulumu hizmetleri.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0e1a",
+    "theme_color": "#0a0e1a",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "pwa-icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "pwa-icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
