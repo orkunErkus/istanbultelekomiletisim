@@ -7,6 +7,8 @@
     <meta name="description" content="İstanbul Telekom - Fiber optik kablo döşeme, onarım, bakım ve network kurulumu hizmetleri. Sultangazi, İstanbul. 7/24 destek. 14 yıllık deneyim.">
     <meta name="keywords" content="fiber internet, fiber kablo döşeme, fiber onarım, fiber bakım, internet kurulumu, Sultangazi, İstanbul telekom, arıza tespit, zayıf akım, network kurulumu">
     <meta name="author" content="İstanbul Telekom">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta property="og:type" content="website">
@@ -21,6 +23,7 @@
     <meta name="twitter:description" content="Fiber optik kablo döşeme, onarım, bakım ve network kurulumu. Sultangazi, İstanbul. 14 yıllık deneyim.">
     <meta name="twitter:image" content="https://istanbultelekomiletisim.com/images/logo.png">
     <link rel="canonical" href="https://istanbultelekomiletisim.com/">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a0e1a">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -97,7 +100,29 @@
         },
         "sameAs": [
             "https://istanbultelekomiletisim.com/"
+        ],
+        "priceRange": "₺"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Anasayfa", "item": "https://istanbultelekomiletisim.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Hizmetlerimiz", "item": "https://istanbultelekomiletisim.com/#services" },
+            { "@type": "ListItem", "position": 3, "name": "Hakkımızda", "item": "https://istanbultelekomiletisim.com/#about" },
+            { "@type": "ListItem", "position": 4, "name": "İletişim", "item": "https://istanbultelekomiletisim.com/#contact" }
         ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "provider": { "@type": "LocalBusiness", "name": "İstanbul Telekom" },
+        "name": "Fiber Optik Hizmetleri",
+        "description": "Fiber sonlandırma, kablo döşeme, arıza tespit, bakım ve onarım hizmetleri."
     }
     </script>
 </head>
@@ -107,7 +132,7 @@
     <header class="header" id="header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="İstanbul Telekom Logo">
+                <img src="images/logo.png" alt="İstanbul Telekom Logo" width="300" height="156">
             </a>
             <nav class="nav" id="nav">
                 <ul>
@@ -130,7 +155,8 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero" id="hero">
+    <main>
+    <section class="hero" id="hero" aria-label="Hero">
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
@@ -170,9 +196,10 @@
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
+    </main>
 
     <!-- SERVICES OVERVIEW -->
-    <section class="services-overview section" id="services">
+    <section class="services-overview section" id="services" aria-label="Hizmetlerimiz">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Hizmetlerimiz</span>
@@ -308,17 +335,17 @@
                     <h3>Dış Etkenlere Dayanıklı</h3>
                     <p>Manyetik alanlar ve hava koşullarından etkilenmeyen stabil bağlantı.</p>
                 </div>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ABOUT -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="about-wrapper">
-                <div class="about-image">
-                    <div class="about-image-main">
-                        <img src="images/about.jpg" alt="İstanbul Telekom Ekibi">
+<!-- ABOUT -->
+<section class="about section" id="about" aria-label="Hakkımızda">
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-image">
+                <div class="about-image-main">
+                    <img src="images/about.jpg" alt="İstanbul Telekom fiber optik saha ekibi çalışma anı" loading="lazy">
                     </div>
                     <div class="about-experience">
                         <span class="experience-number">14+</span>
@@ -512,7 +539,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col footer-brand">
-                    <img src="images/logo.png" alt="İstanbul Telekom" class="footer-logo">
+                    <img src="images/logo.png" alt="İstanbul Telekom - Fiber İnternet Hizmetleri" class="footer-logo" loading="lazy">
                     <p>Fiber internet ile hızın sınırlarını zorlayın, kesintisiz bir dünya sizi bekliyor!</p>
 
                 </div>
@@ -557,7 +584,7 @@
     <!-- PWA INSTALL BANNER -->
     <div class="pwa-banner" id="pwaBanner">
         <div class="pwa-banner-content">
-            <img src="images/logo.png" alt="İstanbul Telekom" class="pwa-banner-icon">
+            <img src="images/logo.png" alt="İstanbul Telekom" class="pwa-banner-icon" loading="lazy">
             <div class="pwa-banner-text">
                 <strong>İstanbul Telekom</strong>
                 <span>Uygulamayı yükleyin</span>
