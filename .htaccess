@@ -1,5 +1,31 @@
 RewriteEngine On
-RewriteRule ^(.*)$ index.html [L]
+
+# Eski hatalı sayfaları ana sayfaya yönlendir
+RewriteRule ^fiber-kablo-tamiri/?$ / [R=301,L]
+RewriteRule ^fiber-kablo-tamiri/(.*)$ / [R=301,L]
+RewriteRule ^contact-2/?$ / [R=301,L]
+RewriteRule ^contact-2/(.*)$ / [R=301,L]
+RewriteRule ^iletisim/?$ / [R=301,L]
+RewriteRule ^iletisim/(.*)$ / [R=301,L]
+RewriteRule ^hakkimizda/?$ / [R=301,L]
+RewriteRule ^hakkimizda/(.*)$ / [R=301,L]
+RewriteRule ^hizmetlerimiz/?$ /#services [R=301,L,NE]
+RewriteRule ^hizmetlerimiz/(.*)$ /#services [R=301,L,NE]
+RewriteRule ^blog/?$ / [R=301,L]
+RewriteRule ^blog/(.*)$ / [R=301,L]
+RewriteRule ^kategori/(.*)$ / [R=301,L]
+RewriteRule ^wp-content/(.*)$ / [R=301,L]
+RewriteRule ^wp-admin/(.*)$ / [R=301,L]
+RewriteRule ^wp-includes/(.*)$ / [R=301,L]
+RewriteRule ^tag/(.*)$ / [R=301,L]
+RewriteRule ^author/(.*)$ / [R=301,L]
+RewriteRule ^page/(.*)$ / [R=301,L]
+RewriteRule ^feed/(.*)$ / [R=301,L]
+
+# Tüm diğer bilinmeyen URL'leri ana sayfaya yönlendir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ / [R=301,L]
 
 # 404 yönlendirme
 ErrorDocument 404 /index.html
